@@ -1,0 +1,191 @@
+//cpp miniproject Abhishek Dhandar
+#include<iostream>
+#include<conio.h>
+using namespace std;
+int total_score = 0;
+int no_of_correct_ans = 0;
+int no_of_incorrect_ans = 0;
+
+class Questions
+{
+	private:
+		 string ques, ans1, ans2, ans3, ans4;
+		 char correct_option, selected_option;
+		 int ques_score;
+		 
+		 public:
+		 	//setter function
+		 	void set_values(string ques,string ans1,string ans2,string ans3,string ans4, char correct_option, int ques_score);
+			 //printf ques
+			 void print_question();
+			  
+};
+int main()
+{
+	cout<<"\n------------------------------------------------------------------------\n";
+
+	cout<<"\n------------------------------QUIZ TIME---------------------------------\n";
+	
+	cout<<"\n------------------------------------------------------------------------\n";
+
+    cout<<"\t\tTOPIC : Basic Science";
+    cout<<"\n IMPORTANT INFORMATION : \n";
+    cout<<"1.total number of question are 10 each of points\n";
+    cout<<"2.Negative marking of[-5] will be there for wrong answer\n";
+    
+    int age;
+    string name;
+    cout<<"Enter your name : ";
+    getline(cin,name);
+    cout<<"enter age : ";
+    cin>>age;
+    
+	system("cls");
+
+	cout<<"\n-------------------------WELCOME "<<name<<"---------------------------\n";
+	char confirm;
+	cout<<"Enter y/Y to start the Quiz : ";
+	cin>>confirm;
+	if(confirm == 'y' || confirm == 'Y')
+	{
+		system("cls");
+	}
+	else
+	{
+		return 0;
+	}
+	Questions ques[10];
+	ques[0].set_values("\tQ1.Who Was The First indian Go to Space ? ","Vikram Ambalal","Ravish Malhotra","Rakesh Sharma","Nagapati Bhagat",'C',10);
+	
+	//ques[0].set_values("\tQ1.WHAT IS YOUR FEV COLLOUR","BLACK","RED","PINK","BLUE",'C',10);
+	
+    	ques[1].set_values("\tQ2.Who Wrote National Anthem","bakim chandra chatterji","rabindranath tagore","swami vivekanand","non of the above",'B',10);
+    	
+			ques[2].set_values("\tQ3.Who was the first president of india ","abdul kalam","lalbahadur shastri","DR.rajendra prasad","zakir hussen",'c',10);
+			
+				ques[3].set_values("\tQ4.What is the state flower of hariyana  ","lotus","rhododendron","golden shower","not declared",'A',10);
+				
+					ques[4].set_values("\tQ5. Which of the following state is not loceted in the north","jharkhand","jammu and kashmir","himachal pradesh","haryana ",'A',10);
+					
+						ques[5].set_values("\tQ6. Which state has the largest area?","maharashtra","madhya pradesh","uttar pradesh","rajestan",'d',10);
+						
+							ques[6].set_values("\tQ7. Which state has the largest population?","uttar pradesh","maharashtra ","bihar","andra pradesh",'a',10);
+							
+								ques[7].set_values("\tQ8. WHAt is the bigest smart phone brand in world ","apple","MOTROLA","REDME","NOKIA",'A',10);
+								
+									ques[8].set_values("\tQ9.Rajya sabha members are elected by ","lok sabha ","legisletive assembly","the people","legestetive council",'b',10);
+									
+										ques[9].set_values("\tQ10. EPSOM(england)belong to which game","horse racing","pollo","shooting","snooker",'a',10);
+										
+											
+											
+	for(int i=0; i<10;i++)
+	{
+		
+		ques[i].print_question();
+		cout<<"\nit ENTER to Continue....";
+		getch();
+		system("cls");
+		
+	}	
+										
+	char ch;
+	int total_ques_answered =no_of_correct_ans + no_of_incorrect_ans;
+	
+cout<<"\n\n-------------------------------RESULT------------------------------------\n";
+
+cout<<"\n\t\t\tNAME :"<<name<<"\n\t\t\tAGE"<<age<<endl;
+
+cout<<"\n\n-------------------------------------------------------------------------\n";
+
+	cout<<"\n\t\t\tTotal question attempted : "<<total_ques_answered<<"/10"<<endl;
+	
+		cout<<"\n\t\t\tTotal Correct question : "<<no_of_correct_ans<<"/"<<total_ques_answered<<endl;											
+	
+		cout<<"\n\t\t\tTotal incorrect question : "<<no_of_incorrect_ans<<"/"<<total_ques_answered<<endl;		
+		
+		cout<<"\n\t\t\tTotal skipped question : " << 10 - no_of_correct_ans - no_of_incorrect_ans <<"/10"<<endl;
+											
+	cout<<"\n\n---------------------------------------------------------------------------------------\n";
+    
+    cout<<"\t\t\tTOTAL SCORE : " << total_score <<"/" <<"100"<<endl;
+    if(total_score>=50)
+    
+    {
+    	ch = 2; //ascii value for smile emoji 
+    	cout<<"Deabak! you got this quiz "<<ch;
+    	
+	}
+	else
+	{
+		ch=3; //ascii value for heart emoji 
+		cout<<"\nCut-off is of 50 points....\n";
+		cout<<"Alas! you lost this quiz ....\nBetter Luck Next Time "<<ch;
+	}
+	return 0;
+	
+}
+void Questions::set_values(string ques, string ans1,string ans2,string ans3,string ans4, char correct_option, int ques_score)
+{
+
+this->ques = ques;
+this->ans1 = ans1;
+this->ans2 = ans2;
+this->ans3 = ans3;
+this->ans4 = ans4;
+this->correct_option = correct_option;
+this->ques_score = ques_score;
+}
+void Questions::print_question()
+{
+	cout<<ques<<endl;
+	 cout<<"\n\tA."<<ans1<<endl;
+	 cout<<"\n\tB."<<ans2<<endl;
+	 cout<<"\n\tC."<<ans3<<endl;
+	 cout<<"\n\tD."<<ans4<<endl;
+	 
+	 select_option_again:
+	 cout<<"please select [A/B/C/D] and [S/s] to skip the ques : ";
+	 cin>>selected_option;
+	 switch(selected_option)
+	 {
+	 	case 'a':
+	 	case 'b':
+	 	case 'c':
+	 	case 'd':
+	 	case 'A':
+	 	case 'B':
+	 	case 'C':
+	 	case 'D':
+	 	
+	 	if(selected_option == correct_option || selected_option == correct_option + 32)
+	 	{
+	 		no_of_correct_ans++;
+	 		cout<<"\n\t\t******CORRECT******"<<endl;
+	 		total_score += 10;
+	 		cout<<"CURRENT SCORE : "<< total_score <<"/"<< "100" << endl;
+	 		
+		 }
+		 else
+		 {
+		 	no_of_incorrect_ans++;
+		 	cout<<"\n\t\t******WRONG******" << endl;
+		 	cout<<"correct option is "<< correct_option << endl;
+		 	cout<<"5 point will be deducted.." << endl;
+		 	total_score -=5;
+		 	cout<<"CURRENT SCORE : "<< total_score<<"/"<<"100"<<endl;
+	 			
+		 }
+		 break;
+		 
+		 case 's':
+		 case 'S':
+		 cout<<"\nThis question has been SKIPPED...!!\n";
+		 break;
+		 
+		 default :
+		 	cout<<"\n Please enter correct code [A/B/C/D]...."<<endl;
+		 	goto select_option_again;
+		 	
+	 }
+}
